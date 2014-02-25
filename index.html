@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta charset='utf-8' />
+    <title>Duplicate Coordinates</title>
+    <link href='//www.mapbox.com/base/latest/base.css' rel='stylesheet' />
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <style>
+        body { padding: 10px; }
+        .point { cursor: pointer; }
+        .axis text {
+          font: 10px sans-serif;
+        }
+
+        .axis path,
+        .axis line {
+          fill: none;
+          stroke: #000;
+          shape-rendering: crispEdges;
+        }
+
+        .x.axis path {
+          /*display: none;*/
+        }
+
+        #info {
+            position: absolute;
+            top: 10px;
+            left: 600px;
+            width: 300px;
+        }
+
+        ellipse {
+          fill: none;
+          stroke: steelblue;
+          stroke-width: 1.5px;
+        }
+
+        ellipse.current {
+          fill: #d3d3d3;
+          stroke: #000;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Size of a Pixel (in meters)</h1>
+    <div id="info">
+      <table>
+        <tr>
+          <th>Zoom</th>
+          <td id="zoom"></td>
+        </tr>
+        <tr>
+          <th>Lat</th>
+          <td id="lat"></td>
+        </tr>
+        <tr>
+          <th>X</th>
+          <td id="x"></td>
+        </tr>
+        <tr>
+          <th>Y</th>
+          <td id="y"></td>
+        </tr>
+      </table>
+    </div>
+    <svg class="chart"></svg>
+    <div id="ranges">
+      <fieldset>
+        <input type="range" value="0" min="0" max="14" step="1" class="zoom-range">
+        <input type="range" value="0" min="0" max="85" step="1" class="lat-range">
+      </fieldset>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
